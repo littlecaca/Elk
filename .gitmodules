@@ -1,0 +1,3 @@
+[submodule "Elk/vendor/spdlog"]
+	path = Elk/vendor/spdlog
+	url = https://github.com/gabime/spdlog

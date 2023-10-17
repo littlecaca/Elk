@@ -2,9 +2,9 @@
 
 #include "Core.h"
 
-namespace Hazel {
+namespace Elk {
 
-	class HZ_API Application
+	class ELK_API Application
 	{
 	public:
 		Application();

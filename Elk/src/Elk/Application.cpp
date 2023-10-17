@@ -1,10 +1,10 @@
 #include <iostream>
 #include "Application.h"
 
-namespace Hazel {
+namespace Elk {
 	Application::Application() {};
 	void Application::Run() {
-		std::cout << "Hazel engine start!" << std::endl;
+		std::cout << "Elk engine start!" << std::endl;
 	};
 	Application::~Application() {};
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Elk">
+      <UniqueIdentifier>{C1E6870B-2DF0-877C-B66B-9E7C2274937C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Elk.h" />
+    <ClInclude Include="src\Elk\Application.h">
+      <Filter>Elk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Elk\Core.h">
+      <Filter>Elk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Elk\EntryPoint.h">
+      <Filter>Elk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Elk\Log.h">
+      <Filter>Elk</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Elk\Application.cpp">
+      <Filter>Elk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Elk\Log.cpp">
+      <Filter>Elk</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
