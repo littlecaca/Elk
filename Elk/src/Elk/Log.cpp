@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-#include "Log.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
-=======
 #include "elkpch.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "Log.h"
->>>>>>> 9614ee7 (Add the precompiled header)
 
 namespace Elk {
 	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;

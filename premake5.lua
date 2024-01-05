@@ -18,8 +18,8 @@ project "Elk"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-    pchheader "hzpch.h"
-	pchsource "Hazel/src/hzpch.cpp"
+    pchheader "elkpch.h"
+    pchsource "Elk/src/elkpch.cpp"
 
     files
     {
@@ -29,13 +29,14 @@ project "Elk"
 
     includedirs
     {
+        "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include"
     }
 
     filter "system:windows"
         cppdialect "C++17"
         staticruntime "On"
-        systemversion "10.0"
+        systemversion "latest"
 
         defines
         {

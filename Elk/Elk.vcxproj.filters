@@ -4,6 +4,9 @@
     <Filter Include="Elk">
       <UniqueIdentifier>{C1E6870B-2DF0-877C-B66B-9E7C2274937C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Elk\Core">
+      <UniqueIdentifier>{B96B14A0-A538-6FAB-CE51-5D53BA7DA439}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Elk\Events">
       <UniqueIdentifier>{854F00FC-7107-4249-DA0E-1BA5C6E5DC39}</UniqueIdentifier>
     </Filter>
@@ -13,8 +16,11 @@
     <ClInclude Include="src\Elk\Application.h">
       <Filter>Elk</Filter>
     </ClInclude>
-    <ClInclude Include="src\Elk\Core.h">
-      <Filter>Elk</Filter>
+    <ClInclude Include="src\Elk\Core\Core.h">
+      <Filter>Elk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Elk\Core\MouseCodes.h">
+      <Filter>Elk\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Elk\EntryPoint.h">
       <Filter>Elk</Filter>
@@ -34,6 +40,7 @@
     <ClInclude Include="src\Elk\Log.h">
       <Filter>Elk</Filter>
     </ClInclude>
+    <ClInclude Include="src\elkpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Elk\Application.cpp">
@@ -42,5 +49,6 @@
     <ClCompile Include="src\Elk\Log.cpp">
       <Filter>Elk</Filter>
     </ClCompile>
+    <ClCompile Include="src\elkpch.cpp" />
   </ItemGroup>
 </Project>

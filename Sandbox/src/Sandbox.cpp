@@ -1,4 +1,5 @@
 #include <Elk.h>
+#include "Elk/Events/ApplicationEvent.h"
 
 /*
  * The Entry Point has been put into the engine side.
