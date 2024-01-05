@@ -1,4 +1,3 @@
-#include <iostream>
 #include <Elk.h>
 
 /*
@@ -10,10 +9,6 @@ public:
 	Sandbox() { }
 
 	~Sandbox() override { }
-	void Run() override 
-	{
-		std::cout << "Welcome to Sandbox Application!" << std::endl;
-	}
 };
 
 

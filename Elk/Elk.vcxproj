@@ -152,6 +152,15 @@
   <ItemGroup>
     <ClCompile Include="src\Elk\Application.cpp" />
     <ClCompile Include="src\Elk\Log.cpp" />
+<<<<<<< HEAD
+=======
+    <ClCompile Include="src\elkpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+>>>>>>> 9614ee7 (Add the precompiled header)
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

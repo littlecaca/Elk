@@ -1,8 +1,14 @@
 #pragma once
 
+<<<<<<< HEAD
 #include <string>
 #include <functional>
 #include "../Core.h"
+=======
+#include "Elk/Core/Core.h"
+#include "Elk/Core/MouseCodes.h"
+#include "elkpch.h"
+>>>>>>> 9614ee7 (Add the precompiled header)
 
 namespace Elk {
 	/*
