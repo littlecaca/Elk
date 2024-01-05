@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Elk/Core/Core.h"
 #include "elkpch.h"
+#include "Elk/Core/Core.h"
 
 namespace Elk {
 	/*

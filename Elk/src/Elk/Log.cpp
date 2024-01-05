@@ -1,6 +1,6 @@
+#include "elkpch.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "Log.h"
-#include "elkpch.h"
 
 namespace Elk {
 	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
