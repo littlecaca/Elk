@@ -147,20 +147,15 @@
     <ClInclude Include="src\Elk\Application.h" />
     <ClInclude Include="src\Elk\Core.h" />
     <ClInclude Include="src\Elk\EntryPoint.h" />
+    <ClInclude Include="src\Elk\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Elk\Events\Event.h" />
+    <ClInclude Include="src\Elk\Events\KeyEvent.h" />
+    <ClInclude Include="src\Elk\Events\MouseEvent.h" />
     <ClInclude Include="src\Elk\Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Elk\Application.cpp" />
     <ClCompile Include="src\Elk\Log.cpp" />
-<<<<<<< HEAD
-=======
-    <ClCompile Include="src\elkpch.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
->>>>>>> 9614ee7 (Add the precompiled header)
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

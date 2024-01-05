@@ -1,14 +1,9 @@
 #pragma once
 
-<<<<<<< HEAD
-#include "Core.h"
-#include <spdlog/spdlog.h>
-#include <memory>
-=======
+
 #include "Elk/Core/Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
->>>>>>> 9614ee7 (Add the precompiled header)
 
 namespace Elk {
 

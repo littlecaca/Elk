@@ -1,10 +1,5 @@
 #pragma once
 
-<<<<<<< HEAD
-#include "Application.h"
-#include "Log.h"
-=======
->>>>>>> 9614ee7 (Add the precompiled header)
 
 #ifdef ELK_PLATFORM_WINDOWS
 
