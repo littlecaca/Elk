@@ -1,7 +1,5 @@
 #pragma once
 
-
-
 #include "elkpch.h"
 #include "Elk/Core/Core.h"
 
