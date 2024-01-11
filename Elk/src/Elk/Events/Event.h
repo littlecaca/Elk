@@ -44,11 +44,11 @@ namespace Elk {
 		{
 			return GetCategoryFlags() & category;
 		}
+		bool m_Handled;
 	protected:
 		virtual ~Event() = default;
 		Event() : m_Handled(false) {}
 	private:
-		bool m_Handled;
 	};
 
 	// Event Dispather

@@ -66,16 +66,28 @@ project "Elk"
         
 
     filter "configurations:Debug"
-        defines "ELK_DEBUG"
+        defines 
+        {
+            "ELK_DEBUG",
+            "ELK_ENABLE_ASSERTS"
+        }
         symbols "On"
+        staticruntime "off"
+        runtime "Debug"
     
     filter "configurations:Release"
         defines "ELK_RELEASE"
         optimize "On"
+        staticruntime "off"
+        runtime "Release"
+        
     
     filter "configurations:Dist"
         defines "ELK_DIST"
         optimize "On"
+        staticruntime "off"
+        runtime "Release"
+
 
 project "Sandbox"
     location "Sandbox"
@@ -106,6 +118,7 @@ project "Sandbox"
         cppdialect "C++17"
         staticruntime "On"
         systemversion "10.0"
+        
 
         defines
         {
@@ -116,11 +129,17 @@ project "Sandbox"
     filter "configurations:Debug"
         defines "ELK_DEBUG"
         symbols "On"
+        staticruntime "off"
+        runtime "Debug"
     
     filter "configurations:Release"
         defines "ELK_RELEASE"
         optimize "On"
+        staticruntime "off"
+        runtime "Release"
     
     filter "configurations:Dist"
         defines "ELK_DIST"
         optimize "On"
+        staticruntime "off"
+        runtime "Release"

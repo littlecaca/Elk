@@ -20,6 +20,11 @@ namespace Elk {
 			glClearColor(0, 1, 0, 0);
 			glClear(GL_COLOR_BUFFER_BIT);
 			m_Window->OnUpdate();
+
+			for (auto layer : m_LayerStack)
+			{
+				layer->OnUpdate();
+			}
 		}
 	};
 
@@ -28,15 +33,31 @@ namespace Elk {
 	void Application::OnEvent(Event &e)
 	{
 		EventDispatcher dispatcher(e);
+		dispatcher.Dispath<WindowCloseEvent>(BIND_EVENT_FN(onWindowClosed));
 
-		dispatcher.Dispath<WindowCloseEvent>(BIND_EVENT_FN(onWindowClosedEvent));
-
-		ELK_CORE_INFO("{0}", e);
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		{
+			(*--it)->OnEvent(e);
+			if (e.m_Handled)
+				break;
+		}
 	}
 
-	bool Application::onWindowClosedEvent(WindowCloseEvent &event)
+	bool Application::onWindowClosed(WindowCloseEvent &event)
 	{
 		m_running = false;
 		return true;
 	}
+
+	void Application::PushLayer(Layer *layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer *overlay)
+	{
+		m_LayerStack.PushOverlay(overlay);
+	}
+
+
 }

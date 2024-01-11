@@ -79,11 +79,11 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>elkpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>ELK_PLATFORM_WINDOWS;ELK_BUILD_DLL;ELK_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ELK_PLATFORM_WINDOWS;ELK_BUILD_DLL;ELK_DEBUG;ELK_ENABLE_ASSERTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -108,7 +108,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -134,7 +134,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -158,18 +158,22 @@
     <ClInclude Include="src\Elk\Events\Event.h" />
     <ClInclude Include="src\Elk\Events\KeyEvent.h" />
     <ClInclude Include="src\Elk\Events\MouseEvent.h" />
+    <ClInclude Include="src\Elk\Layer.h" />
+    <ClInclude Include="src\Elk\LayerStack.h" />
     <ClInclude Include="src\Elk\Log.h" />
-    <ClInclude Include="src\elkpch.h" />
     <ClInclude Include="src\Elk\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\elkpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Elk\Application.cpp" />
+    <ClCompile Include="src\Elk\Layer.cpp" />
+    <ClCompile Include="src\Elk\LayerStack.cpp" />
     <ClCompile Include="src\Elk\Log.cpp" />
+    <ClCompile Include="src\Platform\Windows\WidnowsWindow.cpp" />
     <ClCompile Include="src\elkpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WidnowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

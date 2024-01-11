@@ -44,6 +44,8 @@ namespace Elk
 			ELK_CORE_ASSERT(success, "Countn't initialize GLFW!");
 
 			s_GLFWInitialized = true;
+
+			glfwSetErrorCallback(&GLFWErrorCallBack);
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr);

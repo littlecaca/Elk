@@ -10,6 +10,12 @@
     <Filter Include="Elk\Events">
       <UniqueIdentifier>{854F00FC-7107-4249-DA0E-1BA5C6E5DC39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Elk.h" />
@@ -37,21 +43,39 @@
     <ClInclude Include="src\Elk\Events\MouseEvent.h">
       <Filter>Elk\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Elk\Layer.h">
+      <Filter>Elk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Elk\LayerStack.h">
+      <Filter>Elk</Filter>
+    </ClInclude>
     <ClInclude Include="src\Elk\Log.h">
       <Filter>Elk</Filter>
     </ClInclude>
+    <ClInclude Include="src\Elk\Window.h">
+      <Filter>Elk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\elkpch.h" />
-    <ClInclude Include="src\Elk\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Elk\Application.cpp">
       <Filter>Elk</Filter>
     </ClCompile>
+    <ClCompile Include="src\Elk\Layer.cpp">
+      <Filter>Elk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Elk\LayerStack.cpp">
+      <Filter>Elk</Filter>
+    </ClCompile>
     <ClCompile Include="src\Elk\Log.cpp">
       <Filter>Elk</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WidnowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\elkpch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WidnowsWindow.cpp" />
   </ItemGroup>
 </Project>
