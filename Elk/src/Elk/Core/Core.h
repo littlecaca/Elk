@@ -11,3 +11,11 @@
 #endif
 
 #define BIT(x)	(1 << x)
+
+#ifdef ELK_ENABLE_ASSERTS
+	#define ELK_CORE_ASSERT(isSucceed, ...)	{ if (!(isSucceed)) { ELK_CORE_ERROR("Assert Failed {0}", __VA_ARGS__); __debugbreak(); } }
+	#define ELK_ASSERT(isSucceed, ...)		{ if (!(isSucceed)) { ELK_CORE_ERROR("Assert Failed {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+	#define ELK_CORE_ASSERT(isSucceed, ...)
+	#define ELK_ASSERT(isSucceed, ...)
+#endif

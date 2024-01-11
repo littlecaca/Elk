@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include <Elk/Log.h>
+
 #ifdef ELK_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

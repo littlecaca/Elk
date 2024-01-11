@@ -2,6 +2,7 @@
 
 #include "elkpch.h"
 #include "Elk/Core/Core.h"
+#include "Elk/Core/MouseCodes.h"
 
 namespace Elk {
 	/*
@@ -33,7 +34,6 @@ namespace Elk {
 	class ELK_API Event
 	{
 		friend class EventDispatcher;
-
 	public:
 		virtual EventType GetEventType() const = 0;
 		virtual const char *GetName() const = 0;
@@ -44,7 +44,6 @@ namespace Elk {
 		{
 			return GetCategoryFlags() & category;
 		}
-
 	protected:
 		virtual ~Event() = default;
 		Event() : m_Handled(false) {}
@@ -53,12 +52,12 @@ namespace Elk {
 	};
 
 	// Event Dispather
-	class EventDispather
+	class EventDispatcher
 	{
 		template <typename T>
 		using EventFn = std::function<bool(T &)>;
 	public:
-		EventDispather(Event &event) : m_Event(event) {}
+		EventDispatcher(Event &event) : m_Event(event) {}
 
 		template <typename T>
 		bool Dispath(EventFn<T> func)
@@ -76,15 +75,20 @@ namespace Elk {
 		Event &m_Event;
 	};
 
+	inline std::ostream &operator<<(std::ostream &os, const Event &e)
+	{
+		return os << e.ToString();
+	}
 
 	// For convenience to override functions in derived class
 	// Because the real type of Event &(*) is probably different,
 	// we need the GetStaticType (not virtual)
-#define EVENT_CLASS_TYPE(type)\
-	static EventType GetStaticType() { return EventType::##type; }\
-	virtual EventType GetEventType() const override { return GetStaticType(); }\
-	virtual const char *GetName() const override { return #type; }
+	#define EVENT_CLASS_TYPE(type)\
+		static EventType GetStaticType() { return EventType::##type; }\
+		virtual EventType GetEventType() const override { return GetStaticType(); }\
+		virtual const char *GetName() const override { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category)\
-	virtual int GetCategoryFlags() const override { return category; }
+	#define EVENT_CLASS_CATEGORY(category)\
+		virtual int GetCategoryFlags() const override { return category; }
+
 }

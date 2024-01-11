@@ -10,6 +10,12 @@ workspace "Elk"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Elk/vendor/GLFW/include"
+
+include "Elk/vendor/GLFW"
+
 project "Elk"
     location "Elk"
     kind "SharedLib"
@@ -30,8 +36,15 @@ project "Elk"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
     }
+
+    links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
+	}
 
     filter "system:windows"
         cppdialect "C++17"

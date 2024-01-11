@@ -41,6 +41,8 @@
       <Filter>Elk</Filter>
     </ClInclude>
     <ClInclude Include="src\elkpch.h" />
+    <ClInclude Include="src\Elk\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Elk\Application.cpp">
@@ -50,5 +52,6 @@
       <Filter>Elk</Filter>
     </ClCompile>
     <ClCompile Include="src\elkpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WidnowsWindow.cpp" />
   </ItemGroup>
 </Project>
