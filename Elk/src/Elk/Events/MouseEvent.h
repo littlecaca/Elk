@@ -16,6 +16,9 @@ namespace Elk {
 			return ss.str();
 		}
 
+		float GetX() const { return m_MouseX; }
+		float GetY() const { return m_MouseY; }
+
 		EVENT_CLASS_CATEGORY(EventCategoryMouse);
 		EVENT_CLASS_TYPE(MouseMoved);
 
@@ -35,6 +38,9 @@ namespace Elk {
 			ss << "MouseScrolledEvent: (" << m_OffsetX << ", " << m_OffsetY << ")";
 			return ss.str();
 		}
+
+		float GetOffsetX() const { return m_OffsetX; }
+		float GetOffsetY() const { return m_OffsetY; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryMouse);
 		EVENT_CLASS_TYPE(MouseScrolled);

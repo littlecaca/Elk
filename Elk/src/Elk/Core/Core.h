@@ -19,3 +19,4 @@
 	#define ELK_CORE_ASSERT(isSucceed, ...)
 	#define ELK_ASSERT(isSucceed, ...)
 #endif
+

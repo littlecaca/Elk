@@ -13,12 +13,12 @@ public:
 
 	void OnUpdate() override
 	{
-		ELK_INFO("ExampleLayer::OnUpdate");
+		//ELK_INFO("ExampleLayer::OnUpdate");
 	}
 
 	void OnEvent(Elk::Event &event) override
 	{
-		ELK_INFO("ExampleLayer::OnEvent : {0}", event);
+		//ELK_INFO("ExampleLayer::OnEvent : {0}", event);
 	}
 };
 
