@@ -1,4 +1,4 @@
-#include <Elk.h>
+#include "Elk.h"
 
 /*
  * The Entry Point has been put into the engine side.
@@ -29,6 +29,7 @@ public:
 	Sandbox() 
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Elk::ImGuiLayer());
 	}
 
 	~Sandbox() override { }

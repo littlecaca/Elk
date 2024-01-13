@@ -20,11 +20,15 @@ namespace Elk {
 		void PushLayer(Layer *layer);
 		void PushOverlay(Layer *layer);
 
+		inline static Application &Get() { return *s_Instance; }
+		inline Window &GetWindow() const { return *m_Window; }
+
 	private:
 		bool onWindowClosed(WindowCloseEvent &);
 		bool m_running = true;
 		void OnEvent(Event &);
 		LayerStack m_LayerStack;
+		static Application *s_Instance;
 		
 	};
 	// To be define in CLIENT

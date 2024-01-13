@@ -13,8 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Elk/vendor/GLFW/include"
+IncludeDir["Glad"] = "Elk/vendor/Glad/include"
+IncludeDir["ImGui"] = "Elk/vendor/imgui"
 
 include "Elk/vendor/GLFW"
+include "Elk/vendor/Glad"
+include "Elk/vendor/imgui"
 
 project "Elk"
     location "Elk"
@@ -37,12 +41,16 @@ project "Elk"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
     }
 
     links 
 	{ 
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -54,7 +62,9 @@ project "Elk"
         defines
         {
             "ELK_PLATFORM_WINDOWS",
-            "ELK_BUILD_DLL"
+            "ELK_BUILD_DLL",
+            "GLFW_INCLUDE_NONE",
+            "IMGUI_IMPL_OPENGL_LOADER_CUSTOM"
         }
 
         postbuildcommands
@@ -106,7 +116,9 @@ project "Sandbox"
     includedirs
     {
         "Elk/vendor/spdlog/include",
-        "Elk/src"
+        "Elk/src",
+		"%{IncludeDir.Glad}"
+
     }
 
     links

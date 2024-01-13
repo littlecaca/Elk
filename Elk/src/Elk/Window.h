@@ -4,6 +4,7 @@
 
 #include "Core/Core.h"
 #include "Elk/Events/Event.h"
+//#include "glad/glad.h"
 
 namespace Elk
 {

@@ -1,8 +1,7 @@
 #pragma once
 
-#include "elkpch.h"
 #include "Elk/Window.h"
-#include "GLFW/glfw3.h"
+#include <GLFW/glfw3.h>
 
 namespace Elk
 {

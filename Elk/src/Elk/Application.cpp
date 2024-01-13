@@ -1,30 +1,37 @@
 #include "elkpch.h"
 #include "Application.h"
-#include "GLFW/glfw3.h"
-
+#include "Glad/glad.h"
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 namespace Elk {
+	// Single instance mode
+	Application *Application::s_Instance = nullptr;
+
 	Application::Application() 
 	{
+		ELK_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		unsigned int id;
+		glGenVertexArrays(1, &id);
 	};
 
 	void Application::Run() {
-		ELK_CORE_ERROR("Welcom to the Elk Game Engine!");
+		ELK_CORE_INFO("Welcom to the Elk Game Engine!");
 				
 		while (m_running)
 		{
 			glClearColor(0, 1, 0, 0);
 			glClear(GL_COLOR_BUFFER_BIT);
-			m_Window->OnUpdate();
 
 			for (auto layer : m_LayerStack)
 			{
 				layer->OnUpdate();
 			}
+			m_Window->OnUpdate();
 		}
 	};
 
@@ -52,11 +59,13 @@ namespace Elk {
 	void Application::PushLayer(Layer *layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer *overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 
