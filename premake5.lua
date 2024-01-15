@@ -66,11 +66,10 @@ project "Elk"
             "GLFW_INCLUDE_NONE",
             "IMGUI_IMPL_OPENGL_LOADER_CUSTOM"
         }
-
+        
         postbuildcommands
         {
-
-            ("{COPY} %{cfg.buildtarget.relpath}" .. " ../bin/" .. outputdir .. "/Sandbox")
+            ("{COPY} %{cfg.buildtarget.relpath}" .. " \"../bin/" .. outputdir .. "/Sandbox\"")
         }
         
         

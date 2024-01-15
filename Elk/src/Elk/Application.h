@@ -4,6 +4,7 @@
 #include "Window.h"
 #include <Elk/Events/ApplicationEvent.h>
 #include "LayerStack.h"
+#include "Input.h"
 
 namespace Elk {
 

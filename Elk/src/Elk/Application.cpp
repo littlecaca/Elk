@@ -31,6 +31,8 @@ namespace Elk {
 			{
 				layer->OnUpdate();
 			}
+
+
 			m_Window->OnUpdate();
 		}
 	};
