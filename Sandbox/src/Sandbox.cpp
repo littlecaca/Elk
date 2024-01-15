@@ -1,6 +1,6 @@
 #include "Elk.h"
 #include "Elk/Input.h"
-
+#include <imgui/imgui.h>
 /*
  * The Entry Point has been put into the engine side.
  */
@@ -15,6 +15,10 @@ public:
 	void OnUpdate() override
 	{
 		//ELK_INFO("ExampleLayer::OnUpdate");
+	}
+
+	void OnRenderImgui() override
+	{
 	}
 
 	void OnEvent(Elk::Event &event) override
@@ -34,7 +38,6 @@ public:
 	Sandbox() 
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Elk::ImGuiLayer());
 	}
 
 	~Sandbox() override { }

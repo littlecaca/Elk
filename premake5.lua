@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Elk/vendor/GLFW/include"
 IncludeDir["Glad"] = "Elk/vendor/Glad/include"
 IncludeDir["ImGui"] = "Elk/vendor/imgui"
+IncludeDir["glm"] = "Elk/vendor/glm"
 
 include "Elk/vendor/GLFW"
 include "Elk/vendor/Glad"
@@ -34,7 +35,9 @@ project "Elk"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl"
     }
 
     includedirs
@@ -43,7 +46,8 @@ project "Elk"
         "%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
     }
 
     links 
@@ -56,15 +60,13 @@ project "Elk"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines
         {
             "ELK_PLATFORM_WINDOWS",
             "ELK_BUILD_DLL",
-            "GLFW_INCLUDE_NONE",
-            "IMGUI_IMPL_OPENGL_LOADER_CUSTOM"
+            "GLFW_INCLUDE_NONE"
         }
         
         postbuildcommands
@@ -116,8 +118,9 @@ project "Sandbox"
     {
         "Elk/vendor/spdlog/include",
         "Elk/src",
-		"%{IncludeDir.Glad}"
-
+        "Elk/vendor",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}"
     }
 
     links

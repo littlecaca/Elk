@@ -4,3 +4,9 @@
 [submodule "Elk/vendor/imgui"]
 	path = Elk/vendor/imgui
 	url = git@github.com:TheCherno/imgui.git
+[submodule "Elk/vendor/glm"]
+	path = Elk/vendor/glm
+	url = git@github.com:g-truc/glm.git
+[submodule "Elk/vendor/GLFW"]
+	path = Elk/vendor/GLFW
+	url = git@github.com:glfw/glfw.git

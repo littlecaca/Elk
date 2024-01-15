@@ -159,7 +159,6 @@ namespace Elk
 
 	void WindowsWindow::OnUpdate()
 	{
-
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
 	}

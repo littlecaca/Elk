@@ -13,22 +13,13 @@ namespace Elk
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		virtual void OnAttach();
-		virtual void OnDetach();
-		virtual void OnUpdate();
-		virtual void OnEvent(Event &);
-
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnRenderImgui() override;
+				
+		void Begin();
+		void End();
 	private:
-		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent &);
-		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent &);
-		bool OnMouseScrolledEvent(MouseScrolledEvent &);
-		bool OnMouseMovedEvent(MouseMovedEvent &);
-		bool OnKeyPressedEvent(KeyPressedEvent &);
-		bool OnKeyReleasedEvent(KeyReleasedEvent &);
-		bool OnWindowResizeEvent(WindowResizeEvent &);
-		bool OnKeyTypedEvent(KeyTypedEvent &);
-
-	private:
-		float m_Time = 0;
+		float m_Time = 0.0f;
 	};
 }

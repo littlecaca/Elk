@@ -4,7 +4,8 @@
 #include "Window.h"
 #include <Elk/Events/ApplicationEvent.h>
 #include "LayerStack.h"
-#include "Input.h"
+
+#include "Elk/ImGui/ImGuiLayer.h"
 
 namespace Elk {
 
@@ -16,7 +17,6 @@ namespace Elk {
 
 		virtual void Run();
 
-		std::unique_ptr<Window> m_Window;
 
 		void PushLayer(Layer *layer);
 		void PushOverlay(Layer *layer);
@@ -31,6 +31,8 @@ namespace Elk {
 		LayerStack m_LayerStack;
 		static Application *s_Instance;
 		
+		std::unique_ptr<Window> m_Window;
+		ImGuiLayer *m_ImGuiLayer;
 	};
 	// To be define in CLIENT
 	Application* CreateApplication();
