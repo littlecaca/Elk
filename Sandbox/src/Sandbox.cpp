@@ -1,4 +1,5 @@
 #include "Elk.h"
+#include "Elk/Input.h"
 
 /*
  * The Entry Point has been put into the engine side.
@@ -18,7 +19,11 @@ public:
 
 	void OnEvent(Elk::Event &event) override
 	{
-		//ELK_INFO("ExampleLayer::OnEvent : {0}", event);
+		if (event.GetEventType() == Elk::EventType::KeyPressed)
+		{
+			Elk::KeyPressedEvent &e = (Elk::KeyPressedEvent &)event;
+			ELK_WARN("{0} is pressed", (char)e.GetKeycode());
+		}
 	}
 };
 

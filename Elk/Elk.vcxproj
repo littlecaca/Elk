@@ -152,12 +152,16 @@
     <ClInclude Include="src\Elk.h" />
     <ClInclude Include="src\Elk\Application.h" />
     <ClInclude Include="src\Elk\Core\Core.h" />
+    <ClInclude Include="src\Elk\Core\KeyCodes.h" />
     <ClInclude Include="src\Elk\Core\MouseCodes.h" />
     <ClInclude Include="src\Elk\EntryPoint.h" />
     <ClInclude Include="src\Elk\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Elk\Events\Event.h" />
     <ClInclude Include="src\Elk\Events\KeyEvent.h" />
     <ClInclude Include="src\Elk\Events\MouseEvent.h" />
+    <ClInclude Include="src\Elk\Core\Core.h" />
+    <ClInclude Include="src\Elk\Core\KeyCodes.h" />
+    <ClInclude Include="src\Elk\Core\MouseCodes.h" />
     <ClInclude Include="src\Elk\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Elk\Input.h" />
     <ClInclude Include="src\Elk\Layer.h" />
