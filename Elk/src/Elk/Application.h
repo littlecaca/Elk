@@ -2,9 +2,8 @@
 
 #include "Elk/Core/Core.h"
 #include "Window.h"
-#include <Elk/Events/ApplicationEvent.h>
+#include "Elk/Events/ApplicationEvent.h"
 #include "LayerStack.h"
-
 #include "Elk/ImGui/ImGuiLayer.h"
 
 namespace Elk {

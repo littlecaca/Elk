@@ -2,7 +2,6 @@
 #include "ImGuiLayer.h"
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_glfw.h"
-#include "imgui.h"
 #include "Elk/Application.h"
 #include <GLFW/glfw3.h>
 
@@ -21,6 +20,12 @@ namespace Elk
 
     void ImGuiLayer::OnRenderImgui()
     {
+        ImGui::Begin("Test");
+        ImGui::Text("Hello World");
+        ImGui::End();
+        ImGui::Begin("Test");
+        ImGui::Text("Hello World");
+        ImGui::End();
         ImGui::ShowDemoWindow();
     }
 

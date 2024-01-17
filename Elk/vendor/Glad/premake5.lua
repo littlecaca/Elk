@@ -1,8 +1,7 @@
 project "Glad"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
-	warnings "off"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -22,22 +21,17 @@ project "Glad"
 	filter "system:windows"
 		systemversion "latest"
 
-
+		defines
+		{
+			"_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING",
+			"_CRT_SECURE_NO_WARNINGS"
+		}
 
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
 
-	filter { "system:windows", "configurations:Debug-AS" }	
-		runtime "Debug"
-		symbols "on"
-		flags { "NoRuntimeChecks", "NoIncrementalLink" }
-
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "speed"
 
-    filter "configurations:Dist"
-		runtime "Release"
-		optimize "speed"
-        symbols "off"

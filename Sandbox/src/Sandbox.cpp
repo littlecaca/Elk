@@ -19,6 +19,9 @@ public:
 
 	void OnRenderImgui() override
 	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(Elk::Event &event) override
@@ -31,8 +34,6 @@ public:
 	}
 };
 
-
-
 class Sandbox : public Elk::Application {
 public:
 	Sandbox() 
@@ -42,7 +43,6 @@ public:
 
 	~Sandbox() override { }
 };
-
 
 Elk::Application* Elk::CreateApplication() {
 	return new Sandbox();

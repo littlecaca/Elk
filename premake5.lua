@@ -1,12 +1,12 @@
 workspace "Elk"
-    architecture "x64"
+	architecture "x64"
 
-    configurations
-    {
-        "Debug",
-        "Release",
-        "Dist"
-    }
+	configurations
+	{
+		"Debug",
+		"Release",
+		"Dist"
+	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -22,35 +22,38 @@ include "Elk/vendor/Glad"
 include "Elk/vendor/imgui"
 
 project "Elk"
-    location "Elk"
-    kind "SharedLib"
-    language "C++"
+	location "Elk"
+	kind "StaticLib"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-    pchheader "elkpch.h"
-    pchsource "Elk/src/elkpch.cpp"
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-    files
-    {
-        "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp",
-        "%{prj.name}/vendor/glm/glm/**.hpp",
-        "%{prj.name}/vendor/glm/glm/**.inl"
-    }
+	pchheader "elkpch.h"
+	pchsource "Elk/src/elkpch.cpp"
 
-    includedirs
-    {
-        "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include",
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
+	}
+
+	includedirs
+	{
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}"
-    }
+	}
 
-    links 
+	links 
 	{ 
 		"GLFW",
 		"Glad",
@@ -58,102 +61,91 @@ project "Elk"
 		"opengl32.lib"
 	}
 
-    filter "system:windows"
-        cppdialect "C++17"
-        systemversion "latest"
+	filter "system:windows"
+		systemversion "latest"
 
-        defines
-        {
-            "ELK_PLATFORM_WINDOWS",
-            "ELK_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
-        }
-        
-        postbuildcommands
-        {
-            ("{COPY} %{cfg.buildtarget.relpath}" .. " \"../bin/" .. outputdir .. "/Sandbox\"")
-        }
-        
-        
+		defines
+		{
+			"ELK_PLATFORM_WINDOWS",
+			"GLFW_INCLUDE_NONE",
+			"_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING",
+			"_CRT_SECURE_NO_WARNINGS"
+		}
 
-    filter "configurations:Debug"
-        defines 
-        {
-            "ELK_DEBUG",
-            "ELK_ENABLE_ASSERTS"
-        }
-        symbols "On"
-        staticruntime "off"
-        runtime "Debug"
-    
-    filter "configurations:Release"
-        defines "ELK_RELEASE"
-        optimize "On"
-        staticruntime "off"
-        runtime "Release"
-        
-    
-    filter "configurations:Dist"
-        defines "ELK_DIST"
-        optimize "On"
-        staticruntime "off"
-        runtime "Release"
+
+	filter "configurations:Debug"
+		defines 
+		{
+			"ELK_DEBUG",
+			"ELK_ENABLE_ASSERTS"
+		}
+		symbols "on"
+		runtime "Debug"
+	
+	filter "configurations:Release"
+		defines "ELK_RELEASE"
+		optimize "on"
+		runtime "Release"
+	
+	filter "configurations:Dist"
+		defines "ELK_DIST"
+		optimize "on"
+		runtime "Release"
 
 
 project "Sandbox"
-    location "Sandbox"
-    kind "ConsoleApp"
-    language "C++"
+	location "Sandbox"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-    files
-    {
-        "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
-    }
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-    includedirs
-    {
-        "Elk/vendor/spdlog/include",
-        "Elk/src",
-        "Elk/vendor",
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Elk/vendor/spdlog/include",
+		"Elk/src",
+		"Elk/vendor",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.glm}"
-    }
+	}
 
-    links
-    {
-        "Elk"
-    }
+	links
+	{
+		"Elk",
+	}
 
-    filter "system:windows"
-        cppdialect "C++17"
-        staticruntime "On"
-        systemversion "10.0"
-        
+	filter "system:windows"
+		staticruntime "On"
+		systemversion "latest"
+		
 
-        defines
-        {
-            "ELK_PLATFORM_WINDOWS",
-        }
-        
+		defines
+		{
+			"ELK_PLATFORM_WINDOWS",
+			"_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING"
+		}
 
-    filter "configurations:Debug"
-        defines "ELK_DEBUG"
-        symbols "On"
-        staticruntime "off"
-        runtime "Debug"
-    
-    filter "configurations:Release"
-        defines "ELK_RELEASE"
-        optimize "On"
-        staticruntime "off"
-        runtime "Release"
-    
-    filter "configurations:Dist"
-        defines "ELK_DIST"
-        optimize "On"
-        staticruntime "off"
-        runtime "Release"
+	filter "configurations:Debug"
+		defines "ELK_DEBUG"
+		symbols "on"
+		runtime "Debug"
+	
+	filter "configurations:Release"
+		defines "ELK_RELEASE"
+		optimize "on"
+		runtime "Release"
+	
+	filter "configurations:Dist"
+		defines "ELK_DIST"
+		optimize "on"
+		runtime "Release"
